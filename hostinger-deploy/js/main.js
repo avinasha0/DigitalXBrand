@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPortfolioModal();
     initTestimonialSlider();
     initAnimations();
+    initMobileDropdown();
 });
 
 // Navbar functionality
@@ -757,3 +758,72 @@ function initScrollAnimations() {
 
 // Initialize scroll animations
 initScrollAnimations();
+
+// Mobile dropdown functionality
+function initMobileDropdown() {
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const dropdown = this.closest('.mobile-dropdown');
+            const content = dropdown.querySelector('.mobile-dropdown-content');
+            const isOpen = content.classList.contains('show');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.mobile-dropdown-content').forEach(otherContent => {
+                if (otherContent !== content) {
+                    otherContent.classList.remove('show');
+                    otherContent.classList.add('hide');
+                    setTimeout(() => {
+                        otherContent.classList.add('hidden');
+                        otherContent.classList.remove('hide');
+                    }, 300);
+                }
+            });
+            
+            // Reset all other toggle buttons
+            document.querySelectorAll('.mobile-dropdown-toggle').forEach(otherToggle => {
+                if (otherToggle !== this) {
+                    otherToggle.classList.remove('active');
+                }
+            });
+            
+            if (isOpen) {
+                // Close current dropdown
+                content.classList.remove('show');
+                content.classList.add('hide');
+                this.classList.remove('active');
+                setTimeout(() => {
+                    content.classList.add('hidden');
+                    content.classList.remove('hide');
+                }, 300);
+            } else {
+                // Open current dropdown
+                content.classList.remove('hidden', 'hide');
+                content.classList.add('show');
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.mobile-dropdown')) {
+            document.querySelectorAll('.mobile-dropdown-content').forEach(content => {
+                content.classList.remove('show');
+                content.classList.add('hide');
+                setTimeout(() => {
+                    content.classList.add('hidden');
+                    content.classList.remove('hide');
+                }, 300);
+            });
+            
+            document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+                toggle.classList.remove('active');
+            });
+        }
+    });
+}
