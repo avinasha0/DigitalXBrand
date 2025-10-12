@@ -119,15 +119,9 @@ function initContactForm() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate reCAPTCHA (only if reCAPTCHA is properly configured)
-            let recaptchaResponse = '';
-            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse) {
-                recaptchaResponse = grecaptcha.getResponse();
-                if (!recaptchaResponse) {
-                    showNotification('Please complete the reCAPTCHA verification.', 'error');
-                    return;
-                }
-            }
+            // reCAPTCHA validation temporarily disabled due to invalid site key
+            // TODO: Re-enable after getting new reCAPTCHA keys for production domain
+            let recaptchaResponse = 'disabled';
             
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
