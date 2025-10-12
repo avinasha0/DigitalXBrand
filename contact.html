@@ -41,6 +41,21 @@
         
         <!-- reCAPTCHA -->
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script>
+        // Load reCAPTCHA key securely from server
+        fetch('get-recaptcha-key.php')
+            .then(response => response.json())
+            .then(data => {
+                // Create reCAPTCHA widget with secure key
+                const recaptchaDiv = document.querySelector('.g-recaptcha');
+                if (recaptchaDiv && data.site_key) {
+                    recaptchaDiv.setAttribute('data-sitekey', data.site_key);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading reCAPTCHA key:', error);
+            });
+        </script>
     
     <!-- Structured Data for Contact Page -->
     <script type="application/ld+json">
@@ -250,7 +265,7 @@
                         
                         <!-- reCAPTCHA -->
                         <div class="mb-6 flex justify-center">
-                            <div class="g-recaptcha" data-sitekey="6LcnaucrAAAAAJelfH2z7Q3ZIwsy9psji9PVcMiS"></div>
+                            <div class="g-recaptcha" data-sitekey=""></div>
                         </div>
                         
                         <button type="submit" class="w-full btn-primary text-lg py-4">
