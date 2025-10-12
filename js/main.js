@@ -119,11 +119,14 @@ function initContactForm() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate reCAPTCHA
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-                showNotification('Please complete the reCAPTCHA verification.', 'error');
-                return;
+            // Validate reCAPTCHA (only if reCAPTCHA is properly configured)
+            let recaptchaResponse = '';
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse) {
+                recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    showNotification('Please complete the reCAPTCHA verification.', 'error');
+                    return;
+                }
             }
             
             const submitBtn = contactForm.querySelector('button[type="submit"]');

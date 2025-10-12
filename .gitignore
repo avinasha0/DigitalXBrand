@@ -114,3 +114,28 @@ vendor/
 
 # PHP
 *.php~
+
+# Security and sensitive files
+config.php
+*.env
+.env.*
+smtp-config.php
+email-config.php
+recaptcha-config.php
+send-email*.php
+test-email*.php
+debug-*.php
+*_SETUP.md
+ERROR_REPORT.*
+debug-logs.txt
+*.key
+*.pem
+*.p12
+credentials.json
+service-account.json
+
+# Deployment and backup files
+hostinger-deploy/
+public_html/
+*.zip
+*.tar.gz
