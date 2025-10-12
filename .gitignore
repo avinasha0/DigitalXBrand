@@ -117,6 +117,7 @@ vendor/
 
 # Security and sensitive files
 config.php
+!config-template.php
 *.env
 .env.*
 smtp-config.php
