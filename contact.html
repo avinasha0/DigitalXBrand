@@ -42,19 +42,39 @@
         <!-- reCAPTCHA -->
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script>
-        // Load reCAPTCHA key securely from server
-        fetch('get-recaptcha-key.php')
-            .then(response => response.json())
-            .then(data => {
-                // Create reCAPTCHA widget with secure key
-                const recaptchaDiv = document.querySelector('.g-recaptcha');
-                if (recaptchaDiv && data.site_key) {
-                    recaptchaDiv.setAttribute('data-sitekey', data.site_key);
-                }
-            })
-            .catch(error => {
-                console.error('Error loading reCAPTCHA key:', error);
-            });
+        // Load reCAPTCHA key securely and ensure proper timing
+        function loadRecaptcha() {
+            fetch('get-recaptcha-key.php')
+                .then(response => response.json())
+                .then(data => {
+                    const recaptchaDiv = document.querySelector('.g-recaptcha');
+                    if (recaptchaDiv && data.site_key) {
+                        recaptchaDiv.setAttribute('data-sitekey', data.site_key);
+                        
+                        // Re-render reCAPTCHA if it's already loaded
+                        if (typeof grecaptcha !== 'undefined') {
+                            grecaptcha.render(recaptchaDiv, {
+                                'sitekey': data.site_key
+                            });
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading reCAPTCHA key:', error);
+                });
+        }
+        
+        // Load when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadRecaptcha);
+        } else {
+            loadRecaptcha();
+        }
+        
+        // Also try when reCAPTCHA script loads
+        window.addEventListener('load', function() {
+            setTimeout(loadRecaptcha, 1000);
+        });
         </script>
     
     <!-- Structured Data for Contact Page -->
