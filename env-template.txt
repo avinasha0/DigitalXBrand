@@ -3,8 +3,8 @@
 
 # reCAPTCHA Configuration
 # Get your keys from: https://www.google.com/recaptcha/admin
-RECAPTCHA_SITE_KEY=6Lfce84rAAAAAA6pOYlqYO1Jca4ETv31C5iKHyAU
-RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key_here
+RECAPTCHA_SITE_KEY=6LcnaucrAAAAAJelfH2z7Q3ZIwsy9psji9PVcMiS
+RECAPTCHA_SECRET_KEY=6LcnaucrAAAAANS8al7Ku-77eopvubk8s9OBG9ek
 
 # SMTP Email Configuration
 SMTP_HOST=smtp.hostinger.com
