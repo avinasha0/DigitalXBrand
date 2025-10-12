@@ -122,7 +122,7 @@ config.php
 smtp-config.php
 email-config.php
 recaptcha-config.php
-send-email*.php
+send-email-simple.php
 test-email*.php
 debug-*.php
 *_SETUP.md
