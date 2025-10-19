@@ -1,0 +1,56 @@
+[33mcommit 47128020779346537d2ff469820786a8f58c4940[m
+Author: avinash0a <dbaavin@gmail.com>
+Date:   Sun Oct 12 13:22:49 2025 +0530
+
+    Clean up repository - remove unnecessary files and directories
+
+hostinger-deploy/about.html
+hostinger-deploy/assets/icons/favicon.svg
+hostinger-deploy/assets/icons/site.webmanifest
+hostinger-deploy/assets/images/og-image.jpg
+hostinger-deploy/contact.html
+hostinger-deploy/css/style.css
+hostinger-deploy/index.html
+hostinger-deploy/js/main.js
+hostinger-deploy/portfolio.html
+hostinger-deploy/privacy.html
+hostinger-deploy/privacy.zip
+hostinger-deploy/robots.txt
+hostinger-deploy/send-email-simple.php
+hostinger-deploy/services.html
+hostinger-deploy/sitemap.xml
+hostinger-deploy/terms.html
+hostinger-deploy/test-email.php
+package-lock.json
+package.json
+public_html/EMAILJS_SETUP.md
+public_html/ERROR_REPORT.md
+public_html/ERROR_REPORT.txt
+public_html/SMTP_SETUP.md
+public_html/about.html
+public_html/assets/icons/favicon.ico
+public_html/assets/icons/favicon.svg
+public_html/assets/icons/site.webmanifest
+public_html/assets/images/og-image.jpg
+public_html/contact.html
+public_html/css/style.css
+public_html/debug-email.php
+public_html/debug-js.html
+public_html/debug-logs.txt
+public_html/index.html
+public_html/js/main.js
+public_html/portfolio.html
+public_html/privacy.html
+public_html/robots.txt
+public_html/send-email-phpmailer.php
+public_html/send-email-simple.php
+public_html/send-email.php
+public_html/services.html
+public_html/sitemap.xml
+public_html/terms.html
+public_html/test-contact.php
+public_html/test-email.php
+send-email-simple.php
+src/input.css
+tailwind.config.js
+test-email.php
